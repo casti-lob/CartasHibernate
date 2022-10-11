@@ -1,3 +1,7 @@
+
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.jacaranda.Card"%>
  <%@page import="com.jacaranda.Login"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -9,6 +13,8 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+	
+
 		<%
 		HttpSession sesion = request.getSession();
 		String isSesion = (String) sesion.getAttribute("login");
@@ -20,12 +26,15 @@
 			Card c = new Card(password); 
 			String name = request.getParameter("nameInput");
 			double price = Integer.parseInt(request.getParameter("priceInput"));
-			String active = request.getParameter("active");
+			//String date = request.getParameter("date");
+			//SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			//Date finalDate = format.parse(request.getParameter("date"));
+			//java.sql.Date date2 = new java.sql.Date(finalDate);
+			String date = request.getParameter("date");
 			boolean activeInput = false;
-			if(active != null){
-				activeInput = true;
-			}
-			c.addCard(name, price, activeInput);
+			
+			
+			c.addCard(name, price,date, activeInput);
 		%>
 			<jsp:forward page="Main.jsp"></jsp:forward>
 		 }else{

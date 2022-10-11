@@ -10,5 +10,8 @@
 	<body>
 		<img alt="ImgenError" src="geralSad.png">
 		<p>Error al insertar el usuario</p>
+		<a href="Index.html">
+		<button>Inicio</button>
+		</a>
 	</body>
 </html>

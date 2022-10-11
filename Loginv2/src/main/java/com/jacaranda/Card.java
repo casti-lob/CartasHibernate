@@ -4,7 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -81,17 +86,22 @@ public class Card {
 	 * @param cost
 	 * @param active
 	 * @return If the letter has been added or not
+	 * @throws ParseException 
 	 */
-	public boolean addCard(String name,double cost, boolean active) {
+	public boolean addCard(String name,double cost,String finalDate, boolean active) throws ParseException {
 		boolean add=false;
+		
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+		Date dataFormateada = formato.parse(finalDate); 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cartas?allowPublicKeyRetrieval=true&useSSL=false","dummy","dummy");
-			PreparedStatement sentencia = cn.prepareStatement("INSERT INTO CARD(password,name,price,acquisition,deck_cards) VALUES(?,?,?,NOW(),?)");
+			PreparedStatement sentencia = cn.prepareStatement("INSERT INTO CARD(password,name,price,acquisition,deck_cards) VALUES(?,?,?,?,?)");
 			sentencia.setString(1, this.password);
 			sentencia.setString(2, name);
 			sentencia.setDouble(3, cost);
-			sentencia.setBoolean(4, active);
+			sentencia.setDate(4, (java.sql.Date) dataFormateada);
+			sentencia.setBoolean(5, active);
 			sentencia.executeUpdate();
 			add = true;
 		}catch(Exception e){
