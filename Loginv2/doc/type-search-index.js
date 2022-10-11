@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.jacaranda","l":"Card"},{"p":"com.jacaranda","l":"Login"}];updateSearchResults();

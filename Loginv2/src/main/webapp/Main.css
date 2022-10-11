@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+tr{
+	text-align:center;
+	padding: 10px
+	
+	
+}
+table{
+	
+  border-collapse: collapse 10px solid black;
+	border-radius: 20px;
+	padding: 10px;
+	background-color:#C3FFEB;
+	-webkit-box-shadow: 20px 21px 36px 7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 20px 21px 36px 7px rgba(0,0,0,0.75);
+	box-shadow: 20px 21px 36px 7px rgba(0,0,0,0.75);
+	
+}
+body{
+	background-image: url("b.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+
+
+
+@font-face {
+  font-family: ARMYD;
+  font-style: normal;
+  src: url(ARMYD.TTF) format("truetype");
+}
+
+*{
+	font-family: ARMYD;
+	font-size: 40px;
+}
+
+input{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+button:hover{
+	cursor:pointer;
+	transition:all .5s ease-in-out;
+	overflow:hidden;
+	box-shadow: 0px 0px 15px 15px #000000;
+	-webkit-box-shadow: 0px 0px 15px 15px #000000;
+}
+
+input[type=checkbox]
+{
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari y Chrome */
+  padding: 10px;
+}
+
+h1{
+	font-size: 60px;
+	letter-spacing: 2px;
+	font-weight: lighter;
+}
+
+p{
+	text-align: center;
+}
+div{
+	margin-top: 4%;
+}
