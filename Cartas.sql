@@ -13,7 +13,7 @@ CREATE TABLE CARD
 	acquisition date,
 	deck_cards		boolean,
 	CONSTRAINT pk_historial PRIMARY KEY(code),
-	CONSTRAINT fk_historial FOREIGN KEY (password) REFERENCES usuario(password) ON UPDATE CASCADE
+	CONSTRAINT fk_historial FOREIGN KEY (password) REFERENCES USER(password) ON UPDATE CASCADE
 	);
 	
 INSERT INTO USER

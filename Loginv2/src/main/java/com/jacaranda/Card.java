@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import javax.print.attribute.standard.DateTimeAtCompleted;
+
 /**
  * This class builds the card object
  * @author jose antonio, roman
@@ -88,11 +90,10 @@ public class Card {
 	 * @return If the letter has been added or not
 	 * @throws ParseException 
 	 */
-	public boolean addCard(String name,double cost,String finalDate, boolean active) throws ParseException {
+	public boolean addCard(String name,double cost,Date finalDate, boolean active) throws ParseException {
 		boolean add=false;
 		
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
-		Date dataFormateada = formato.parse(finalDate); 
+		 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cartas?allowPublicKeyRetrieval=true&useSSL=false","dummy","dummy");
@@ -100,7 +101,7 @@ public class Card {
 			sentencia.setString(1, this.password);
 			sentencia.setString(2, name);
 			sentencia.setDouble(3, cost);
-			sentencia.setDate(4, (java.sql.Date) dataFormateada);
+			sentencia.setDate(4, (java.sql.Date) finalDate);
 			sentencia.setBoolean(5, active);
 			sentencia.executeUpdate();
 			add = true;

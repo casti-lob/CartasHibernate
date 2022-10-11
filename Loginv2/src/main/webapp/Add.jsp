@@ -26,15 +26,15 @@
 			Card c = new Card(password); 
 			String name = request.getParameter("nameInput");
 			double price = Integer.parseInt(request.getParameter("priceInput"));
-			//String date = request.getParameter("date");
-			//SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			//Date finalDate = format.parse(request.getParameter("date"));
-			//java.sql.Date date2 = new java.sql.Date(finalDate);
 			String date = request.getParameter("date");
+			
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+			Date finalDate= format.parse(date);
+			
 			boolean activeInput = false;
 			
 			
-			c.addCard(name, price,date, activeInput);
+			c.addCard(name, price,finalDate, activeInput);
 		%>
 			<jsp:forward page="Main.jsp"></jsp:forward>
 		 }else{
